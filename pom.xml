@@ -10,6 +10,10 @@
     <version>2.0</version>
     <name>EEA Template Refresh Module</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <!-- the build configuration -->
     <distributionManagement>
         <repository>
@@ -45,6 +49,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -58,7 +63,7 @@
 
         <sourceDirectory>src</sourceDirectory>
         <resources></resources>
-        <finalName>eea-template-${version}</finalName>
+        <finalName>eea-template-${project.version}</finalName>
     </build>
 
     <dependencies>
