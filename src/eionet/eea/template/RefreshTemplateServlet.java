@@ -47,9 +47,9 @@ public class RefreshTemplateServlet extends HttpServlet {
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        updateTemplate("http://www.eea.europa.eu/getHeader", "header");
-        updateTemplate("http://www.eea.europa.eu/getRequiredHead", "required_head");
-        updateTemplate("http://www.eea.europa.eu/getFooter", "footer");
+        updateTemplate("http://www.eea.europa.eu/templates/v2/getHeader", "header");
+        updateTemplate("http://www.eea.europa.eu/templates/v2/getRequiredHead", "required_head");
+        updateTemplate("http://www.eea.europa.eu/templates/v2/getFooter", "footer");
 
         res.sendRedirect("");
     }
@@ -90,10 +90,11 @@ public class RefreshTemplateServlet extends HttpServlet {
         }
         return result;
     }
-
+    
     private boolean saveToFile(String page, String content) {
         try {
             String folderPath = getServletContext().getInitParameter("templateCacheFolder");
+            
             File folder = new File(folderPath);
             if (!folder.exists() || !folder.isDirectory()) {
                 // creates the directory, including any necessary but nonexistent parent directories
